@@ -9,7 +9,7 @@ from .markers import FilePositionMarker, EnrichedFilePositionMarker
 from .segments import BaseSegment, RawSegment, Indent, Dedent, TemplateSegment
 from ..errors import SQLLexError
 from ..templaters import TemplatedFile
-from ..config import FluffConfig
+from sqlfluff.core.config import FluffConfig
 
 # Instantiate the lexer logger
 lexer_logger = logging.getLogger("sqlfluff.lexer")

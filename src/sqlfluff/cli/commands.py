@@ -29,8 +29,8 @@ from .formatters import (
 from .helpers import cli_table, get_package_version
 
 # Import from sqlfluff core.
-from ..core import Linter, FluffConfig, SQLLintError, dialect_selector, dialect_readout
-
+from ..core import Linter, SQLLintError, dialect_selector, dialect_readout
+from sqlfluff.core.config import FluffConfig
 
 class RedWarningsFilter(logging.Filter):
     """This filter makes all warnings or above red."""

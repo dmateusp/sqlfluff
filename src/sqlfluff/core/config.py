@@ -8,7 +8,7 @@ import sys
 import configparser
 from typing import Dict, List, Tuple, Any, Optional, Union, Iterable
 from pathlib import Path
-import sqlfluff.core.plugin
+from sqlfluff.core.plugin.host import get_plugin_manager
 
 import appdirs
 
@@ -338,9 +338,9 @@ class FluffConfig:
         self, configs: Optional[dict] = None, overrides: Optional[dict] = None
     ):
         self._overrides = overrides  # We only store this for child configs
+        plugin_manager = get_plugin_manager()
         defaults = nested_combine(
-            # TODO: Solve the cyclic import better?
-            *sqlfluff.core.plugin.plugin_manager.plugin_manager.hook.load_default_config()
+            *plugin_manager.hook.load_default_config()
         )
         self._configs = nested_combine(
             defaults, configs or {"core": {}}, {"core": overrides or {}}
