@@ -3,7 +3,7 @@
 # flake8: noqa: F401
 
 # Config objects
-#from .config import FluffConfig
+from .config import FluffConfig
 
 # Public classes
 from .linter import Linter
